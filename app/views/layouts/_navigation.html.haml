@@ -1,0 +1,18 @@
+-# navigation styled for Zurb Foundation 5
+-# the syntax for data-topbar may need to change for Zurb Foundation 5
+%nav.top-bar{"data-topbar" => true}
+  %ul.title-area
+    %li.name
+      = link_to 'Home', root_path
+    %li.toggle-topbar.menu-icon
+      %a{:href => "#"}
+        %span Menu
+  .top-bar-section
+    %ul.left
+      = render 'layouts/navigation_links'
+      = form_tag(search_planning_apps_path, method: :get) do
+        = text_field_tag :query, nil, placeholder: 'Search applications'
+        = submit_tag 'Search', class: 'alert button expand', id: 'search'
+    %ul.hmenu.right
+      = render 'devise/menu/registration_items'
+      = render 'devise/menu/login_items'
