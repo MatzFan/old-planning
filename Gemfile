@@ -13,6 +13,7 @@ end
 
 gem 'rails_12factor', group: :production
 
+gem 'haml', '~> 4.0.4'
 gem 'unicorn'
 gem 'devise'
 gem 'foreigner'

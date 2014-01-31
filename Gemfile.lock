@@ -189,6 +189,7 @@ DEPENDENCIES
   foreigner
   foundation-rails
   foundation_rails_helper
+  haml (~> 4.0.4)
   haml-rails
   jbuilder (~> 1.2)
   jquery-rails
