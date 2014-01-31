@@ -5,5 +5,6 @@ class CreateAppStatuses < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_reference :planning_apps, :app_status, index: true
   end
 end

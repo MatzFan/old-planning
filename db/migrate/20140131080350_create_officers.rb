@@ -5,5 +5,6 @@ class CreateOfficers < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_reference :planning_apps, :officer, index: true
   end
 end

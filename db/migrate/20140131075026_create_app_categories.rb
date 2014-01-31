@@ -6,5 +6,6 @@ class CreateAppCategories < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_reference :planning_apps, :app_category, index: true
   end
 end
