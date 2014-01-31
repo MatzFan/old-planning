@@ -2,6 +2,6 @@ class AppStatus < ActiveRecord::Base
 
   has_many :planning_apps
 
-  validates :code, uniqueness: true
+  validates :description, uniqueness: true
 
 end

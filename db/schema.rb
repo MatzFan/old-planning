@@ -11,10 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140131000525) do
+ActiveRecord::Schema.define(version: 20140131075338) do
+
+  create_table "app_categories", force: true do |t|
+    t.string   "code"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "app_statuses", force: true do |t|
-    t.string   "code"
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -25,12 +31,12 @@ ActiveRecord::Schema.define(version: 20140131000525) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "app_statuses_id"
     t.integer  "app_status_id"
+    t.integer  "app_category_id"
   end
 
+  add_index "planning_apps", ["app_category_id"], name: "index_planning_apps_on_app_category_id", using: :btree
   add_index "planning_apps", ["app_status_id"], name: "index_planning_apps_on_app_status_id", using: :btree
-  add_index "planning_apps", ["app_statuses_id"], name: "index_planning_apps_on_app_statuses_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -50,6 +56,7 @@ ActiveRecord::Schema.define(version: 20140131000525) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "planning_apps", "app_categories", name: "planning_apps_app_category_id_fk"
   add_foreign_key "planning_apps", "app_statuses", name: "planning_apps_app_status_id_fk"
 
 end

@@ -1,8 +1,7 @@
 class CreateAppStatuses < ActiveRecord::Migration
   def change
     create_table :app_statuses do |t|
-      t.string :code, unique: true
-      t.string :description
+      t.string :description, unique: true
 
       t.timestamps
     end
