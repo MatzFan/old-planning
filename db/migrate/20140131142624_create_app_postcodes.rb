@@ -5,6 +5,6 @@ class CreateAppPostcodes < ActiveRecord::Migration
 
       t.timestamps
     end
-    add_reference :planning_apps, :app_postcodes, index: true
+    add_reference :planning_apps, :app_postcode, index: true
   end
 end

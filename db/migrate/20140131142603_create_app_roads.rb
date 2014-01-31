@@ -5,6 +5,6 @@ class CreateAppRoads < ActiveRecord::Migration
 
       t.timestamps
     end
-    add_reference :planning_apps, :roads, index: true
+    add_reference :planning_apps, :app_road, index: true
   end
 end
