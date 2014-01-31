@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140131075338) do
+ActiveRecord::Schema.define(version: 20140131081741) do
+
+  create_table "agent_names", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "app_categories", force: true do |t|
     t.string   "code"
@@ -26,6 +32,12 @@ ActiveRecord::Schema.define(version: 20140131075338) do
     t.datetime "updated_at"
   end
 
+  create_table "officers", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "planning_apps", force: true do |t|
     t.string   "reference",       null: false
     t.text     "description"
@@ -33,10 +45,12 @@ ActiveRecord::Schema.define(version: 20140131075338) do
     t.datetime "updated_at"
     t.integer  "app_status_id"
     t.integer  "app_category_id"
+    t.integer  "officer_id"
   end
 
   add_index "planning_apps", ["app_category_id"], name: "index_planning_apps_on_app_category_id", using: :btree
   add_index "planning_apps", ["app_status_id"], name: "index_planning_apps_on_app_status_id", using: :btree
+  add_index "planning_apps", ["officer_id"], name: "index_planning_apps_on_officer_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -58,5 +72,6 @@ ActiveRecord::Schema.define(version: 20140131075338) do
 
   add_foreign_key "planning_apps", "app_categories", name: "planning_apps_app_category_id_fk"
   add_foreign_key "planning_apps", "app_statuses", name: "planning_apps_app_status_id_fk"
+  add_foreign_key "planning_apps", "officers", name: "planning_apps_officer_id_fk"
 
 end
