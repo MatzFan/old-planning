@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140131094742) do
+ActiveRecord::Schema.define(version: 20140131095507) do
 
   create_table "agent_names", force: true do |t|
     t.string   "name"
@@ -49,6 +49,12 @@ ActiveRecord::Schema.define(version: 20140131094742) do
     t.datetime "updated_at"
   end
 
+  create_table "parishes", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "planning_apps", force: true do |t|
     t.string   "reference",       null: false
     t.text     "description"
@@ -58,12 +64,14 @@ ActiveRecord::Schema.define(version: 20140131094742) do
     t.integer  "app_category_id"
     t.integer  "officer_id"
     t.integer  "agent_name_id"
+    t.integer  "parish_id"
   end
 
   add_index "planning_apps", ["agent_name_id"], name: "index_planning_apps_on_agent_name_id", using: :btree
   add_index "planning_apps", ["app_category_id"], name: "index_planning_apps_on_app_category_id", using: :btree
   add_index "planning_apps", ["app_status_id"], name: "index_planning_apps_on_app_status_id", using: :btree
   add_index "planning_apps", ["officer_id"], name: "index_planning_apps_on_officer_id", using: :btree
+  add_index "planning_apps", ["parish_id"], name: "index_planning_apps_on_parish_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
