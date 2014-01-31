@@ -123,5 +123,6 @@ ActiveRecord::Schema.define(version: 20140131145511) do
   add_foreign_key "planning_apps", "app_roads", name: "planning_apps_app_road_id_fk"
   add_foreign_key "planning_apps", "app_statuses", name: "planning_apps_app_status_id_fk"
   add_foreign_key "planning_apps", "officers", name: "planning_apps_officer_id_fk"
+  add_foreign_key "planning_apps", "parishes", name: "planning_apps_parish_id_fk"
 
 end
