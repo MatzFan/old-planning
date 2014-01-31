@@ -13,6 +13,7 @@ end
 
 gem 'rails_12factor', group: :production
 
+gem 'unicorn'
 gem 'devise'
 gem 'foreigner'
 gem 'foundation-rails'
