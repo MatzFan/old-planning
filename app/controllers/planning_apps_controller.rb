@@ -1,12 +1,12 @@
 class PlanningAppsController < ApplicationController
 
-  def index
-    @planning_apps = PlanningApp.all
+  before_action :authenticate_user!, except: [:welcome]
+
+  def welcome
   end
 
   def search
     @planning_apps = PlanningApp.search(params[:query]) # search is dusen method
-    render 'index'
   end
 
 end
