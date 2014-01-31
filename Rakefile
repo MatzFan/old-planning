@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-DusenTest::Application.load_tasks
+Planning::Application.load_tasks

@@ -1,4 +1,4 @@
-DusenTest::Application.routes.draw do
+Planning::Application.routes.draw do
 
   devise_for :users
 
